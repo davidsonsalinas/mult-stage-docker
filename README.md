@@ -1,4 +1,3 @@
-<title>Full Cycle Course - Go App</title>
 <h1>Full Cycle Course - Go App</h1>
 <p>Este projeto é um desafio do curso full cycle, o projeto demonstra a construção de uma aplicação Go com Docker utilizando multi-stage builds para otimizar o tamanho da imagem final.</p>
 
