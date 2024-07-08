@@ -1,11 +1,19 @@
 version: '1'
+
 services:
-  go:
-    image: golang:1.8
-    container_name: go
-    working_dir: /go/src/app
-    volumes:
-      - .:/go/src/app
-    ports:
-      - "8080:8080"
-    command: go run main.go
+  builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    image: builder:latest
+    container_name: my_go_app_builder
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: go_app:latest
+    container_name: my_go_app_container
+    depends_on:
+      - builder
